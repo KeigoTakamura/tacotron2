@@ -1,9 +1,8 @@
-FROM pytorch/pytorch:nightly-devel-cuda10.0-cudnn7
-ENV PATH /usr/local/nvidia/bin:/usr/local/cuda/bin:${PATH}
+FROM rocm/pytorch:rocm2.7_ubuntu16.04_py3.6_pytorch
 
 RUN apt-get update -y
 
-RUN pip install numpy scipy matplotlib librosa==0.6.0 tensorflow tensorboardX inflect==0.2.5 Unidecode==1.0.22 jupyter
+RUN pip install numpy scipy matplotlib librosa==0.6.0 tensorflow  tensorboardX inflect==0.2.5 Unidecode==1.0.22 jupyter
 
 ADD apex /apex/
 WORKDIR /apex/
